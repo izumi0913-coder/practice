@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>タブメニューサンプル</title>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <!--アコーディオンメニュー-->
+<details class="accordion-005">
+    <summary>これはどのようなテンプレートですか？</summary>
+    <p>見出し風のアコーディオンメニューです。</p>
+</details>
+<details class="accordion-005">
+    <summary>どのような特徴がありますか？</summary>
+    <p>目を引く可愛らしさとスタイリッシュさを兼ね備えています。</p>
+</details>
+<div class="qa">
+    <ul class="qa_block">
+      <li class="qa_item">
+        <button class="qa_head js-ac">テキストテキストテキストテキスト</button>
+          <div class="qa_body">
+            <p>
+              テキストテキストテキストテキスト
+            </p>
+        </div>
+      </li>
+      <li class="qa_item">
+        <button class="qa_head js-ac">テキストテキストテキストテキスト</button>
+        <div class="qa_body">
+          <p>
+            テキストテキストテキストテキスト
+          </p>
+        </div>
+      </li>
+      <li class="qa_item">
+        <button class="qa_head js-ac">テキストテキストテキストテキスト</button>
+        <div class="qa_body">
+          <p>
+            テキストテキストテキストテキスト
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!--モーダルボタン-->
+  <div class="layer js-modal">
+    <div class="modal">
+      <div class="modal_inner">
+        <div class="modal_button-wrap">
+          <button class="close-button js-close-button">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <div class="modal_contents">
+          <div class="modal_content">
+            コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="button js-modal-button">モーダルボタン</button>
+
+  <!--タブメニュー-->
+  <div class="container">
+
+    <div class="tab-group">
+      <h2 class="tab active">Tab1</h2>
+      <h2 class="tab">Tab2</h2>
+      <h2 class="tab">Tab3</h2>
+    </div>
+  
+    <!--画面に表示するコンテンツ-->
+    <div class="tabcontent">
+      <div class="content active"> <!--最初に表示-->
+        <p>タブ１のコンテンツ</p>
+      </div>
+      <div class="content">
+        <p>タブ２のコンテンツ</p>
+      </div>
+      <div class="content">
+        <p>タブ３のコンテンツ</p>
+      </div>
+    </div>
+  
+  </div>
+
+  <script src="js/event.js"></script>
+</body>
+</html>
