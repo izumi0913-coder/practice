@@ -1,145 +1,99 @@
-/*アコーディオンの最大幅*/
-.accordion-005 {
-    max-width: 700px;
-}
-
-/*アコーディオンが閉じている状態の時の行と行の間の数値*/
-.accordion-005:not([open]) {
-    margin-bottom: 7px;
-}
-
-/*タイトル*/
-.accordion-005 summary {
-    display: flex;
-    justify-content: space-between;/*タイトル内の要素を左右に均等に配置*/
-    align-items: center;
-    position: relative;/*タイトル内の要素を相対位置で配置*/
-    padding: 1em 2em;/*タイトルの内側に上下1em、左右2emのパディングを追加します。*/
-    border-left: 5px solid #2589d0;
-    background-color: #f2f2f2;
-    color: #333333;
-    font-weight: 600;
-    cursor: pointer;/*タイトルにマウスカーソルを合わせたときにポインターを表示し、クリックできるようにする*/
-}
-
-/*マーカー（通常は三角形の矢印）を非表示にする*/
-.accordion-005 summary::webkit-details-marker {
-    display: none;
-}
-
-/*疑似要素でカスタムの矢印を作成*/
-.accordion-005 summary::before,
-.accordion-005 summary::after {
-    width: 3px;
-    height: 15px;
-    border-radius: 5px;/*疑似要素の角*/
-    background-color: #c2c2c2;/*議事要素の背景色*/
-    content: '';/*疑似要素を画面に表示するための「おまじない」*/
-}
-
-/*::before要素を右側に配置し、90度回転させて横向きの棒として表示*/
-.accordion-005 summary::before {
-    position: absolute;
-    right: 2em;
-    rotate: 90deg;
-}
-
-.accordion-005 summary::after {
-    transition: rotate.3s;
-}
-
-/*アコーディオンが開いているときに、::after要素を90度回転させて、矢印の向きを変える*/
-.accordion-005[open] summary::after {
-    rotate: 90deg;
-}
-
-.accordion-005 p {
-    transform: translateY(-10px);
-    opacity: 0;/*初期状態では内容を上に10ピクセル移動させ、透明にする*/
-    margin: 0;
-    padding: 1em 2em 2em 2em;
-    color: #333333;
-    transition: transform .5s, opacity .5s;/*0.5sかけてtransformとopacityを行う*/
-}
-
-.accordion-005[open] p {
-    transform: none;/*アコーディオンが開いたときに、<p>要素に適用されていたtransform: translateY(-10px);（要素を上方向に10ピクセル移動させる）を解除*/
-    opacity: 1;/*このコードがないと文字が表示されない。アコーディオンが開いたときに、<p>要素に適用されていたopacity: 0;（要素を完全に透明にする）を解除し、要素を表示*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 .qa_block {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    height: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  height: auto;
 }
 
 .qa_item {
-    display: inline-block;
+  display: block;
+}
+
+/* 2つ目以降にだけ上マージンを追加して隙間を空ける */
+.qa_item:not(:first-child) {
+  margin-top: 16px;
 }
 
 .qa_head {
-    position: relative;
-    text-align: left;
-    padding: 20px 30px 20px 20px;
-    border-radius: 8px 8px 0 0;
-    background: lightblue;
-    color: black;
-    cursor: pointer;
-    width: 100%;
-    font-size: 12px;
+  position: relative;
+  text-align: left;
+  padding: 20px 30px 20px 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: black;
+  cursor: pointer;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid black;
 }
 
-.qa_body {
-    position: relative;
-    border-radius: 0 0 8px 8px;
-    background: #ffffff;
-    color: black;
-    border: 1px solid lightblue;
-    padding: 20px;
-    height: auto;
-    font-size: 12px;
+.qa_head::before {
+  content: "Q";
+  font-size: 20px;
+  font-weight: 700;
+  color: #9ed0e0;
+  margin-right: 8px;
 }
 
-.qa_head:after {
-    content:"";
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    transform: rotate(-135deg) translateY(9px);
-    position: absolute;
-    right: 50px;
-    top: 50%;
-    transition: transform .4s;
-}
-
-.qa_body {
-    position: relative;
-    border-radius: 0 0 8px 8px;
-    background: #ffffff;
-    color: black;
-    border: transparent;
-    padding: 0 20px; /*上下のpaddingを非表示の状態にする*/
-    line-height: 0; /*非表示、0*/
-    opacity: 0; /*非表示、0*/
-    transition: line-height 0.4s, padding 0.4s, opacity 0.4s;
-}
-
-.qa_body.is-open {
-    padding: 20px;
-    line-height: 1.5;
-    opacity: 1;
-    border: 1px solid lightblue;
+.qa_head::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  top: 50%; /* 上端から50%（中央） */
+  transform: translateY(-50%); /* 完全に縦中央に揃える */
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px; /* 縦位置も中央に揃える */
+  background-color: #9ed0e0;
+  color: white;
+  border-radius: 50%;
+  text-align: center; /* プラス記号を横中央に揃える */
+  transition: transform 0.3s;
 }
 
 .qa_head.is-open::after {
-    transform: rotate(45deg) translateY(-10px);
+  content: "−";
 }
 
-.qa_item:not(:first-child) {
-    margin-top: 16px;
+.qa_head.is-open {
+  border-bottom: none;
+}
+
+.qa_body {
+  position: relative;
+  background: #f5f5f5;
+  color: black;
+  border: 1px solid black;
+  border-top: none; /* ヘッダーとの境界線を消す */
+  border-radius: 0 0 8px 8px;
+  padding: 0 20px;
+  line-height: 0; /* テキスト高さ0＝非表示 */
+  opacity: 0;  /* 完全に透明＝非表示 */
+  transition: line-height 0.4s, padding 0.4s, opacity 0.4s;
+  overflow: hidden; /*はみ出した部分は非表示にする*/
+  font-size: 12px;
+}
+
+.qa_body::before {
+  content: "A";
+  font-size: 20px;
+  font-weight: 700;
+  color: #9ed0e0;
+  margin-right: 8px;
+}
+
+.qa_body.is-open {
+  padding: 20px;
+  line-height: 1.5;
+  opacity: 1;
 }
 
 /*モーダルウィンドウ*/
@@ -306,4 +260,129 @@
   display: block;
  }
 
+ /*スワイパー スライダー全体の枠（コンテナ）のこと */
+ .swiper {
+  width: 90%;
+  max-width: 800px;
+  height: auto;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* 切れないように調整（必要に応じて変更） */
+}
+
+/* ナビゲーションボタン（←と→） */
+.swiper-button-prev,
+.swiper-button-next {
+  color: white; /*矢印の色を白に*/
+  width: 44px;
+  height: 44px;
+  background-color: rgba(0, 0, 0, 0.4); /* 半透明の黒背景 */
+  border-radius: 50%;
+  /* ボタンを縦方向の中央にキレイに配置 */
+  top: 50%; /* 親の高さの真ん中に */
+  transform: translateY(-50%);  /* 親の高さの真ん中に */
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: rgba(0, 0, 0, 0.6); /* ホバー時は少し濃い黒に */
+}
+
+/* ページネーション（スライド下の小さな●） */
+.swiper-pagination-bullet {
+  background: white;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background: #007aff; /* アクティブ（現在のスライド）を青に */
+}
+
+/* スライダー2の外側ボタン調整 */
+.slider2-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 50px auto;
+  overflow: visible;
+}
+
+.swiper-button-prev-2,
+.swiper-button-next-2 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border-radius: 50%;
+}
+
+.swiper-button-prev-2:hover,
+.swiper-button-next-2:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* 外側に配置 */
+.swiper-button-prev-2 {
+  left: -60px;
+}
+
+.swiper-button-next-2 {
+  right: -60px;
+}
+
+ @media screen and (max-width:480px) {
+  .qa_block {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  .qa_head,
+  .qa_body {
+    font-size: 14px;
+    padding: 16px;
+  }
+
+  .qa_head::after {
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 18px;
+  }
+
+  .qa_head::before,
+  .qa_body::before {
+    font-size: 16px;
+  }
+
+  .swiper {
+    height:auto;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 36px;
+    height: 36px;
+  }
+
+  .swiper-button-prev-2 {
+    left: 10px; /*小さい画面では少しだけ外につける*/
+  }
+  .swiper-button-next-2 {
+    right: 10px;
+  }
+ }
 

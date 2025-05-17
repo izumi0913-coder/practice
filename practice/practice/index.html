@@ -4,6 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>タブメニューサンプル</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
       <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -16,29 +17,30 @@
     <summary>どのような特徴がありますか？</summary>
     <p>目を引く可愛らしさとスタイリッシュさを兼ね備えています。</p>
 </details>
+
 <div class="qa">
     <ul class="qa_block">
       <li class="qa_item">
-        <button class="qa_head js-ac">テキストテキストテキストテキスト</button>
+        <button class="qa_head js-ac">ひとりで複数回投稿してもいいですか？</button>
           <div class="qa_body">
             <p>
-              テキストテキストテキストテキスト
+              期間中であれば何度でも投稿可能ですが、当選は１回限りとなります。
             </p>
         </div>
       </li>
       <li class="qa_item">
-        <button class="qa_head js-ac">テキストテキストテキストテキスト</button>
+        <button class="qa_head js-ac">過去の尾道旅行の写真でもいいですか？</button>
         <div class="qa_body">
           <p>
-            テキストテキストテキストテキスト
+            キャンペーン以前の期間に撮影した写真での参加も可能です。ただし、過去のInstagramに投稿済みのものに編集で「#見つけて尾道レトロ」を追加されてもシステム上反映することはできません。ご注意ください。
           </p>
         </div>
       </li>
       <li class="qa_item">
-        <button class="qa_head js-ac">テキストテキストテキストテキスト</button>
+        <button class="qa_head js-ac">お店の中で写真を撮ってもいいですか？</button>
         <div class="qa_body">
           <p>
-            テキストテキストテキストテキスト
+            店内で撮影した写真での参加も可能ですが、他人のプライバシーを侵害する写真によるご応募は無効です。店内撮影の際は、必ずお店の人へご確認ください。
           </p>
         </div>
       </li>
@@ -85,9 +87,40 @@
         <p>タブ３のコンテンツ</p>
       </div>
     </div>
-  
   </div>
 
+  <!-- スライダー -->
+  <div class="swiper slider1">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="images/swiper1.png" alt="スライド1"></div>
+      <div class="swiper-slide"><img src="images/swiper2.png" alt="スライド2"></div>
+      <div class="swiper-slide"><img src="images/swiper3.png" alt="スライド3"></div>
+      <div class="swiper-slide"><img src="images/swiper4.png" alt="スライド4"></div>
+    </div>
+
+    <!-- ページネーションとナビボタン -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+<!-- スライダー2（ボタンを外に配置） -->
+<div class="slider2-wrapper">
+
+  <div class="swiper slider2">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="images/swiper1.png" alt="スライド1"></div>
+      <div class="swiper-slide"><img src="images/swiper2.png" alt="スライド2"></div>
+      <div class="swiper-slide"><img src="images/swiper3.png" alt="スライド3"></div>
+      <div class="swiper-slide"><img src="images/swiper4.png" alt="スライド4"></div>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev-2"></div>
+  <div class="swiper-button-next-2"></div>
+
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/event.js"></script>
 </body>
 </html>

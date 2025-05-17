@@ -44,3 +44,29 @@ tabs.forEach((tab,index) => {
     contents[index].classList.add('active');
   });
 });
+
+// スライダー1
+const swiper1 = new Swiper('.slider1', {
+  loop: true,
+  pagination: {
+    el: '.slider1 .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.slider1 .swiper-button-next',
+    prevEl: '.slider1 .swiper-button-prev',
+  },
+});
+
+// スライダー2
+const swiper2 = new Swiper('.slider2', {
+  loop: true,
+  pagination: {
+    el: '.slider2 .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.slider2 .swiper-button-next-2',
+    prevEl: '.slider2 .swiper-button-prev-2',
+  },
+});
