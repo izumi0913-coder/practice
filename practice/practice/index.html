@@ -7,8 +7,32 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
       <link rel="stylesheet" href="style.css">
     </head>
+<!--ヘッダー-->
+    <header class="header">
+      <div class="header_inner">
+        <h1 class="header_title header-title">
+          <a href="#">
+            logo
+          </a>
+        </h1>
+        <nav class="header_nav nav" id="js-nav">
+          <ul class="nav_items nav-items">
+            <li class="nav-items_item"><a href="">メニュー</a></li>
+            <li class="nav-items_item"><a href="">メニュー</a></li>
+            <li class="nav-items_item"><a href="">メニュー</a></li>
+            <li class="nav-items_item"><a href="">メニュー</a></li>
+          </ul>
+        </nav>
+        <button class="header__hamburger hamburger" id="js-hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
     <body>
-      <!--アコーディオンメニュー-->
+<!--アコーディオンメニュー-->
 <details class="accordion-005">
     <summary>これはどのようなテンプレートですか？</summary>
     <p>見出し風のアコーディオンメニューです。</p>
@@ -114,8 +138,8 @@
       <div class="swiper-slide"><img src="images/swiper3.png" alt="スライド3"></div>
       <div class="swiper-slide"><img src="images/swiper4.png" alt="スライド4"></div>
     </div>
+    <div class="swiper-pagination"></div>
   </div>
-  <div class="swiper-pagination"></div>
   <div class="swiper-button-prev-2"></div>
   <div class="swiper-button-next-2"></div>
 
